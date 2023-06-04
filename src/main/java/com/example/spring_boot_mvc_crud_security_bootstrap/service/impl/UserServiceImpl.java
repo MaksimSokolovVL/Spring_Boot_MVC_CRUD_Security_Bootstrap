@@ -1,10 +1,11 @@
-package com.example.spring_boot_mvc_crud_security_bootstrap.service;
+package com.example.spring_boot_mvc_crud_security_bootstrap.service.impl;
 
 
 import com.example.spring_boot_mvc_crud_security_bootstrap.model.Role;
 import com.example.spring_boot_mvc_crud_security_bootstrap.model.User;
 import com.example.spring_boot_mvc_crud_security_bootstrap.repository.RoleRepository;
 import com.example.spring_boot_mvc_crud_security_bootstrap.repository.UserRepository;
+import com.example.spring_boot_mvc_crud_security_bootstrap.service.UserService;
 import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -48,13 +49,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public User getUserForId(long id) {
         User user = null;
         Optional<User> byId = userRepository.findById(id);
@@ -71,13 +72,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         User user = userRepository.findByUsername(username);
@@ -89,7 +90,4 @@ public class UserServiceImpl implements UserService {
 
         return user;
     }
-
-
-
 }

@@ -9,5 +9,4 @@ public class SpringBootMvcCrudSecurityBootstrapApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootMvcCrudSecurityBootstrapApplication.class, args);
     }
-
 }

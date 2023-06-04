@@ -4,6 +4,7 @@ import com.example.spring_boot_mvc_crud_security_bootstrap.model.Role;
 import com.example.spring_boot_mvc_crud_security_bootstrap.model.User;
 import com.example.spring_boot_mvc_crud_security_bootstrap.service.RoleService;
 import com.example.spring_boot_mvc_crud_security_bootstrap.service.UserService;
+import com.example.spring_boot_mvc_crud_security_bootstrap.util.JoinedRolesUtil;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
